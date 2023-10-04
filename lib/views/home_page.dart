@@ -52,6 +52,7 @@ class _HomeState extends State<Home> {
             fontSize: 28,
           ),
         ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 15, right: 15),
@@ -115,16 +116,15 @@ class _HomeState extends State<Home> {
                   children: [
                     //textfield 1
                     Container(
-                      height: 80,
+                      height: 60,
                       decoration: BoxDecoration(
                           color: Colors.grey.shade400,
                           borderRadius: BorderRadius.circular(15)),
                       child: TextField(
-                        style: const TextStyle(fontSize: 32),
+                        style: const TextStyle(fontSize: 23),
                         controller: nameController,
                         decoration: const InputDecoration(
-                          border: InputBorder.none,
-                        ),
+                            border: InputBorder.none, hintText: 'Name'),
                       ),
                     ),
                     const SizedBox(
@@ -132,16 +132,15 @@ class _HomeState extends State<Home> {
                     ),
                     //textfield 2
                     Container(
-                      height: 80,
+                      height: 60,
                       decoration: BoxDecoration(
                           color: Colors.grey.shade400,
                           borderRadius: BorderRadius.circular(15)),
                       child: TextField(
-                        style: const TextStyle(fontSize: 32),
+                        style: const TextStyle(fontSize: 23),
                         controller: designationController,
                         decoration: const InputDecoration(
-                          border: InputBorder.none,
-                        ),
+                            border: InputBorder.none, hintText: 'Designation'),
                       ),
                     ),
                     const SizedBox(
@@ -157,13 +156,20 @@ class _HomeState extends State<Home> {
                         Navigator.of(context).pop();
                       },
                       child: Container(
-                        width: 60,
-                        height: 30,
+                        width: 80,
+                        height: 40,
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.circular(7),
                         ),
-                        child: const Center(child: Text('Save')),
+                        child: const Center(
+                            child: Text(
+                          'Save',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                          ),
+                        )),
                       ),
                     ),
                   ],
