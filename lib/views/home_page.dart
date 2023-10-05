@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15),
+        padding: const EdgeInsets.only(left: 15, right: 15, top: 5),
         child: Column(
           children: [
             Expanded(
@@ -63,30 +63,36 @@ class _HomeState extends State<Home> {
                 itemCount: myTodolist.length,
                 itemBuilder: (context, index) {
                   return Container(
+                    height: 90,
                     decoration: BoxDecoration(
                         color: Colors.green.shade100,
                         borderRadius: BorderRadius.circular(13)),
-                    child: ListTile(
-                      title: Text(
-                        myTodolist[index][0],
-                        style: const TextStyle(
-                          fontSize: 24,
+                    child: Center(
+                      child: ListTile(
+                        title: Text(
+                          myTodolist[index][0],
+                          style: const TextStyle(
+                            fontSize: 28,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      subtitle: Text(
-                        myTodolist[index][1],
-                        style: const TextStyle(
-                          fontSize: 20,
+                        subtitle: Text(
+                          myTodolist[index][1],
+                          style: const TextStyle(
+                            fontSize: 23,
+                            color: Colors.black,
+                          ),
                         ),
+                        trailing: IconButton(
+                            onPressed: () {
+                              delete(index);
+                            },
+                            icon: const Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                              size: 29,
+                            )),
                       ),
-                      trailing: IconButton(
-                          onPressed: () {
-                            delete(index);
-                          },
-                          icon: const Icon(
-                            Icons.delete,
-                            color: Colors.red,
-                          )),
                     ),
                   );
                 },
@@ -120,11 +126,17 @@ class _HomeState extends State<Home> {
                       decoration: BoxDecoration(
                           color: Colors.grey.shade400,
                           borderRadius: BorderRadius.circular(15)),
-                      child: TextField(
-                        style: const TextStyle(fontSize: 23),
-                        controller: nameController,
-                        decoration: const InputDecoration(
-                            border: InputBorder.none, hintText: 'Name'),
+                      child: Center(
+                        child: TextField(
+                          cursorColor: Colors.grey,
+                          style: const TextStyle(fontSize: 23),
+                          controller: nameController,
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Name',
+                            prefixText: ' ',
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -136,11 +148,16 @@ class _HomeState extends State<Home> {
                       decoration: BoxDecoration(
                           color: Colors.grey.shade400,
                           borderRadius: BorderRadius.circular(15)),
-                      child: TextField(
-                        style: const TextStyle(fontSize: 23),
-                        controller: designationController,
-                        decoration: const InputDecoration(
-                            border: InputBorder.none, hintText: 'Designation'),
+                      child: Center(
+                        child: TextField(
+                          cursorColor: Colors.grey,
+                          style: const TextStyle(fontSize: 23),
+                          controller: designationController,
+                          decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Designation',
+                              prefixText: ' '),
+                        ),
                       ),
                     ),
                     const SizedBox(
